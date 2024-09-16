@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      username: althaf
+      password: althaf
+      host: localhost
+      port: 27018
+      database: customer
+      authentication-database: admin
+
+
+server:
+  port: 8090
+

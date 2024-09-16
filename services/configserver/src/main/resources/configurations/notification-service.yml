@@ -1,0 +1,42 @@
+spring:
+  data:
+    mongodb:
+      username: althaf
+      password: althaf
+      host: localhost
+      port: 27017
+      database: notification
+      authentication-database: admin
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: paymentGroup,orderGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+        spring.json.type.mapping: orderConfirmation:com.althaf.ecommerce.kafka.order.OrderConfirmation,paymentConfirmation:com.althaf.ecommerce.kafka.payment.PaymentConfirmation
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: projectu67@gmail.com
+    password: gbqrhpdffcsfuvhn
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+          auth: true
+          starttls:
+            enabled: true
+            required: true
+        transport:
+          protocol: smtp
+
+
+server:
+  port: 8040
+logging:
+  level:
+    root: DEBUG
+
